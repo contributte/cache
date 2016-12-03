@@ -62,14 +62,14 @@
       "qa": {
         "codesniffer": {
           "ruleset": "nette",
-          "folders": ["src", "tests"]
+          "folders": ["src"]
         },
         "codefixer": {
           "ruleset": "nette",
-          "folders": ["src", "tests"]
+          "folders": ["src"]
         },
         "linter": {
-          "folders": ["src", "tests"]
+          "folders": ["src"]
         }
       }
     }

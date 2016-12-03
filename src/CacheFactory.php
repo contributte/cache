@@ -5,6 +5,9 @@ namespace Contributte\Cache;
 use Nette\Caching\Cache;
 use Nette\Caching\IStorage;
 
+/**
+ * @author Milan Felix Sulc <sulcmil@gmail.com>
+ */
 final class CacheFactory implements ICacheFactory
 {
 

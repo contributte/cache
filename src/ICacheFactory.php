@@ -1,8 +1,12 @@
 <?php
+
 namespace Contributte\Cache;
 
 use Nette\Caching\Cache;
 
+/**
+ * @author Milan Felix Sulc <sulcmil@gmail.com>
+ */
 interface ICacheFactory
 {
 

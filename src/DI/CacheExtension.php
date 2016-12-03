@@ -5,7 +5,10 @@ namespace Contributte\Cache\DI;
 use Contributte\Cache\CacheFactory;
 use Nette\DI\CompilerExtension;
 
-final class CacheExtensions extends CompilerExtension
+/**
+ * @author Milan Felix Sulc <sulcmil@gmail.com>
+ */
+final class CacheExtension extends CompilerExtension
 {
 
 	/**
