@@ -2,7 +2,7 @@
   "name": "contributte/cache",
   "description": "Extra contrib to nette/cache",
   "keywords": ["nette", "cache", "provider"],
-  "type": "project",
+  "type": "library",
   "license": "MIT",
   "homepage": "https://github.com/contributte/cache",
   "authors": [
