@@ -1,6 +1,6 @@
 # Cache
 
-:sparkles: Extra contrib to nette/cache (@nette)
+:sparkles: Extra contrib to [nette/cache](https://github.com/nette/cache).
 
 -----
 
@@ -27,7 +27,14 @@ composer require contributte/cache
 
 ```yaml
 extensions:
-    cache: Contributte\Cache\DI\CacheExtension
+    cacheFactory: Contributte\Cache\DI\CacheFactoryExtension
+```
+
+You can override it by your implementation.
+
+```yaml
+services:
+    cacheFactory.factory: My\CacheFactory
 ```
 
 -----

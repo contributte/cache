@@ -13,11 +13,15 @@
   ],
   "require": {
     "php": ">= 5.6",
-    "nette/di": "^2.4.4",
     "nette/caching": "^2.5.2"
   },
   "require-dev": {
-    "ninjify/qa": "^0.3.1"
+    "ninjify/qa": "^0.3.1",
+    "ninjify/nunjuck": "^0.1.2",
+    "nette/di": "^2.4.4"
+  },
+  "suggest": {
+    "nette/di": "to use CacheFactoryExtension[CompilerExtension]"
   },
   "autoload": {
     "psr-4": {
@@ -45,16 +49,16 @@
       "Ninjify\\Composer\\Script\\Linter::execute"
     ],
     "qa-tester": [
-      "tester tests/cases -s -p php -c tests/php-unix.ini"
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini"
     ],
     "qa-tester-info": [
-      "tester tests/cases -s -p php -c tests/php-unix.ini -i"
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -i"
     ],
     "qa-tester-coverage": [
-      "tester tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src"
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src"
     ],
     "qa-tester-coverage-info": [
-      "tester tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src -i"
+      "nunjuck tests/cases -s -p php -c tests/php-unix.ini -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src -i"
     ]
   },
   "extra": {
