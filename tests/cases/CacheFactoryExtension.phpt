@@ -16,14 +16,14 @@ use Tester\Assert;
 require_once __DIR__ . '/../bootstrap.php';
 
 test(function () {
-    $loader = new ContainerLoader(TEMP_DIR, TRUE);
-    $class = $loader->load(function (Compiler $compiler) {
-        $compiler->addExtension('cacheFactory', new CacheFactoryExtension());
-        $compiler->addExtension('cache', new CacheExtension(TEMP_DIR));
-    }, 1);
+	$loader = new ContainerLoader(TEMP_DIR, TRUE);
+	$class = $loader->load(function (Compiler $compiler) {
+		$compiler->addExtension('cacheFactory', new CacheFactoryExtension());
+		$compiler->addExtension('cache', new CacheExtension(TEMP_DIR));
+	}, 1);
 
-    /** @var Container $container */
-    $container = new $class;
+	/** @var Container $container */
+	$container = new $class;
 
-    Assert::type(CacheFactory::class, $container->getByType(ICacheFactory::class));
+	Assert::type(CacheFactory::class, $container->getByType(ICacheFactory::class));
 });

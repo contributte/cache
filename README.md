@@ -1,4 +1,4 @@
-# Cache
+# Contributte > Cache
 
 :sparkles: Extra contrib to [`nette/caching`](https://github.com/nette/caching).
 
