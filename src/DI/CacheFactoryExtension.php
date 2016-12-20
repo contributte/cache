@@ -8,7 +8,7 @@ use Nette\DI\CompilerExtension;
 /**
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  */
-final class CacheFactoryExtension extends CompilerExtension
+class CacheFactoryExtension extends CompilerExtension
 {
 
 	/**

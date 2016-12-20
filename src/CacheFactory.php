@@ -8,7 +8,7 @@ use Nette\Caching\IStorage;
 /**
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  */
-final class CacheFactory implements ICacheFactory
+class CacheFactory implements ICacheFactory
 {
 
 	/** @var IStorage */
