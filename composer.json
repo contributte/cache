@@ -16,9 +16,9 @@
     "nette/caching": "^2.5.2"
   },
   "require-dev": {
-    "ninjify/qa": "^0.3.1",
-    "ninjify/nunjuck": "^0.1.2",
-    "nette/di": "^2.4.4"
+    "ninjify/qa": "^0.3.3",
+    "ninjify/nunjuck": "^0.1.4",
+    "nette/di": "^2.4.5"
   },
   "suggest": {
     "nette/di": "to use CacheFactoryExtension[CompilerExtension]"
