@@ -24,21 +24,15 @@
 composer require contributte/cache
 ```
 
-## Usage
+## Versions
 
-### `CacheFactory`
+| State       | Version | Branch   | PHP      |
+|-------------|---------|----------|----------|
+| development | `^0.1`  | `master` | `>= 5.6` |
 
-```yaml
-extensions:
-    cache: Contributte\Cache\DI\CacheFactoryExtension
-```
+## Overview
 
-You can override it by your implementation.
-
-```yaml
-services:
-    cache.factory: My\CacheFactory
-```
+- [CacheFactoryExtension - provides simple CacheFactory](https://github.com/contributte/cache/blob/master/.docs/README.md#cache-factory)
 
 -----
 
