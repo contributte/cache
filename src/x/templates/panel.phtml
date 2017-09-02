@@ -1,0 +1,28 @@
+<h1>Cache</h1>
+
+<div class="tracy-inner" style="max-width: 900px;">
+    <table>
+        <thead>
+        <tr>
+            <th>Namespace</th>
+            <th>Hash</th>
+            <th>Expire</th>
+            <th>Size</th>
+            <th>File</th>
+            <th>Meta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($introspection as $item): ?>
+            <tr>
+                <td><?= $item['namespace'] ?></td>
+                <td><?= $item['hash'] ?></td>
+                <td title="<?= $item['expire'] ? $item['expire'] : NULL ?>"><?= $item['expire'] ? Nette\Utils\DateTime::from($item['expire'])->format('d.m.Y-H:i:s') : NULL ?></td>
+                <td><?= Contributte\Caching\CachePanel::templateBytes($item['size']) ?></td>
+                <td><a href="<?= Tracy\Helpers::editorUri($item['file']) ?>">[?]</a></td>
+                <td><?= Tracy\Dumper::toHtml($item['meta'], [Tracy\Dumper::COLLAPSE => TRUE, Tracy\Dumper::LIVE => FALSE]); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

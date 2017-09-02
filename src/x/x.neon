@@ -1,0 +1,7 @@
+tracy:
+	bar:
+		- Contributte\Caching\CachePanel
+
+services:
+	- Contributte\Caching\CacheFinder(%tempDir%/cache)
+	- Contributte\Caching\CacheIntrospection
