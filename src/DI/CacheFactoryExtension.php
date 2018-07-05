@@ -1,22 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Contributte\Cache\DI;
 
 use Contributte\Cache\CacheFactory;
 use Nette\DI\CompilerExtension;
 
-/**
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- */
 class CacheFactoryExtension extends CompilerExtension
 {
 
-	/**
-	 * Register services
-	 *
-	 * @return void
-	 */
-	public function loadConfiguration()
+	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
 
