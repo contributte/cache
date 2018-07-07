@@ -13,7 +13,7 @@
   "homepage": "https://github.com/contributte/cache",
   "authors": [
     {
-      "name": "Milan Felix Sulc",
+      "name": "Milan Felix Šulc",
       "homepage": "https://f3l1x.io"
     }
   ],
@@ -22,8 +22,8 @@
     "nette/caching": "~2.5.8"
   },
   "require-dev": {
-    "ninjify/qa": "~0.8.0",
-    "ninjify/nunjuck": "~0.2.0",
+    "ninjify/qa": "^0.8.0",
+    "ninjify/nunjuck": "^0.2.0",
     "nette/di": "~2.4.13"
   },
   "suggest": {
@@ -45,10 +45,10 @@
       "codesniffer src tests"
     ],
     "tester": [
-      "tester -s -p php --colors 1 -C tests/cases"
+      "tester -s -p phpdbg --colors 1 -C tests/cases"
     ],
     "coverage": [
-      "tester -s -p php --colors 1 -C -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src tests/cases"
+      "tester -s -p phpdbg --colors 1 -C -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src tests/cases"
     ],
     "phpstan-install": [
       "mkdir -p temp/phpstan",
