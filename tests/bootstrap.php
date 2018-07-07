@@ -10,8 +10,3 @@ if (@!include __DIR__ . '/../vendor/autoload.php') {
 // Configure environment
 Environment::setupTimezone();
 Environment::setupVariables(__DIR__);
-
-function test(Closure $function): void
-{
-	$function();
-}
