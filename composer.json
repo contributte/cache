@@ -30,7 +30,8 @@
     "nette/di": "to use CacheFactoryExtension[CompilerExtension]"
   },
   "conflict": {
-    "nette/di": "<2.4.13"
+    "nette/di": "<2.4.13",
+    "nette/utils": "<2.5.0"
   },
   "autoload": {
     "psr-4": {
