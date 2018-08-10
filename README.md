@@ -33,6 +33,7 @@ composer require contributte/cache
 ## Overview
 
 - [CacheFactoryExtension - provides simple CacheFactory](https://github.com/contributte/cache/blob/master/.docs/README.md#cache-factory)
+- [Storages](https://github.com/contributte/cache/blob/master/.docs/README.md#storages)
 
 ## Maintainers
 
