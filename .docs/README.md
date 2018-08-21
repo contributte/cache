@@ -7,15 +7,15 @@
 
 ## Cache Factory
 
-This simple extesions is at all very useful. Don't wase of time of passing directly `Nette\Caching\IStorage` to 
-your classes. You our tuned `CacheFactory`. 
+This simple extesions is very useful. Don't waste time by passing `Nette\Caching\IStorage` directly to 
+your classes. Use our tuned `CacheFactory`. 
 
 ```yaml
 extensions:
     cache: Contributte\Cache\DI\CacheFactoryExtension
 ```
 
-By default is provided `Nette\Caching\Cache` when `$cacheFactory->create()` is called. You can change it to your implementation.
+By default `Nette\Caching\Cache` is provided when `$cacheFactory->create()` is called. You can change it to your implementation.
 
 ```yaml
 services:
