@@ -12,14 +12,14 @@ your classes. Use our tuned `CacheFactory`.
 
 ```yaml
 extensions:
-    cache: Contributte\Cache\DI\CacheFactoryExtension
+    cache.factory: Contributte\Cache\DI\CacheFactoryExtension
 ```
 
 By default `Nette\Caching\Cache` is provided when `$cacheFactory->create()` is called. You can change it to your implementation.
 
 ```yaml
 services:
-    cache.factory: App\Model\MyCacheFactory
+    cache.factory.factory: App\Model\MyCacheFactory
 ```
 
 ### Storages
