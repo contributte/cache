@@ -16,11 +16,11 @@
     }
   ],
   "require": {
-    "php": ">= 7.1",
-    "nette/caching": "~2.5.8 || ~3.0.0"
+    "php": "^7.2",
+    "nette/caching": "~3.0.0"
   },
   "require-dev": {
-    "nette/di": "~2.4.13",
+    "nette/di": "~3.0.0",
     "ninjify/nunjuck": "^0.2.0",
     "ninjify/qa": "^0.8.0",
     "phpstan/extension-installer": "^1.0",
@@ -33,8 +33,7 @@
     "nette/di": "to use CacheFactoryExtension[CompilerExtension]"
   },
   "conflict": {
-    "nette/di": "<2.4.13",
-    "nette/utils": "<2.5.0"
+    "nette/di": "<3.0.0"
   },
   "autoload": {
     "psr-4": {
@@ -48,7 +47,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.4.x-dev"
+      "dev-master": "0.5.x-dev"
     }
   }
 }
