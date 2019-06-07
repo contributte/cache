@@ -1,13 +1,20 @@
-# Cache / Caching
+# Contributte Cache
 
 ## Content
 
-- [CacheFactoryExtension - provides simple CacheFactory](#cache-factory)
+- [Setup](#setup)
+- [CacheFactory](#cache-factory)
 - [Storages](#storages)
+
+## Setup
+
+```bash
+composer require contributte/cache
+```
 
 ## Cache Factory
 
-This simple extesions is very useful. Don't waste time by passing `Nette\Caching\IStorage` directly to 
+This simple extension is very useful. Don't waste time by passing `Nette\Caching\IStorage` directly to 
 your classes. Use our tuned `CacheFactory`. 
 
 ```yaml
@@ -22,7 +29,7 @@ services:
     cache.factory.factory: App\Model\MyCacheFactory
 ```
 
-### Storages
+## Storages
 
 - MemoryAdapterStorage
 
