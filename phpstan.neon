@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		# Future proof
+		- '#^Return type \(string\|null\) of method Contributte\\Cache\\Tracy\\StoragePanel\:\:get.+ should be covariant with return type \(string\) of method .+#'
+
+		# Ugly part of php
+		- '#^Method .+ returns string\|false.$#'

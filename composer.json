@@ -27,10 +27,11 @@
     "phpstan/phpstan-deprecation-rules": "^0.11",
     "phpstan/phpstan-nette": "^0.11",
     "phpstan/phpstan-shim": "^0.11",
-    "phpstan/phpstan-strict-rules": "^0.11"
+    "phpstan/phpstan-strict-rules": "^0.11",
+    "tracy/tracy": "~2.6.0"
   },
   "suggest": {
-    "nette/di": "to use CacheFactoryExtension[CompilerExtension]"
+    "nette/di": "to use CacheFactoryExtension and DebugStorageExtension"
   },
   "conflict": {
     "nette/di": "<3.0.0"
