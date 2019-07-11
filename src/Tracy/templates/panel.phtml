@@ -1,0 +1,54 @@
+<?php
+
+use Contributte\Cache\Storages\LoggableStorage;
+use Tracy\Dumper;
+
+/** @var mixed[] $calls */
+/** @var mixed[] $options */
+?>
+<style class="tracy-debug">
+	#tracy-debug .storage-table tr td:nth-child(1) {
+		text-align: center;
+	}
+</style>
+
+<h1>Cache Storage</h1>
+<div class="tracy-inner">
+	<?php if (count($calls) <= 0): ?>
+		No cache calls.
+	<?php else: ?>
+		<div class="tracy-inner-container">
+			<table class="storage-table">
+				<tr>
+					<th>Method</th>
+					<th>Key</th>
+					<th>Data</th>
+					<th>Options</th>
+				</tr>
+				<?php foreach ($calls as $n => $call): ?>
+					<tr>
+						<td><?= $call[LoggableStorage::KEY_METHOD] ?></td>
+						<td><?= $call[LoggableStorage::KEY_KEY] ?></td>
+						<td>
+							<?php if ($options['dumpData'] === true && $call[LoggableStorage::KEY_DATA]) : ?>
+								<a rel="#storage-data-<?= $n ?>" class="tracy-toggle tracy-collapsed">(...)</a>
+								<div class="tracy-collapsed" id="#storage-data-<?= $n ?>">
+									<?= Dumper::toHtml(is_string($call[LoggableStorage::KEY_DATA]) ? trim($call[LoggableStorage::KEY_DATA]) : $call[LoggableStorage::KEY_DATA], [Dumper::COLLAPSE => true]) ?>
+								</div>
+							<?php else: ?>
+								-
+							<?php endif; ?>
+						</td>
+						<td>
+							<?php if ($options['dumpOptions'] === true && $call[LoggableStorage::KEY_OPTIONS]) : ?>
+								<?= Dumper::toHtml($call[LoggableStorage::KEY_OPTIONS], [Dumper::COLLAPSE => true]) ?>
+							<?php else: ?>
+								-
+							<?php endif; ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+		</div>
+	<?php endif ?>
+</div>

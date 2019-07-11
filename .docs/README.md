@@ -5,6 +5,7 @@
 - [Setup](#setup)
 - [CacheFactory](#cache-factory)
 - [Storages](#storages)
+- [Debug panel](#debug-panel)
 
 ## Setup
 
@@ -14,8 +15,7 @@ composer require contributte/cache
 
 ## Cache Factory
 
-This simple extension is very useful. Don't waste time by passing `Nette\Caching\IStorage` directly to 
-your classes. Use our tuned `CacheFactory`. 
+Don't waste time by passing `Nette\Caching\IStorage` directly to your classes. Use our tuned `CacheFactory`. 
 
 ```yaml
 extensions:
@@ -44,3 +44,15 @@ services:
                     new FileStorage($path, new SQLiteJournal($path))
                );
     ```
+
+## Debug panel
+
+Show all calls to storage in Tracy panel
+
+```yaml
+extensions:
+    cache.debug: Contributte\Cache\DI\DebugStorageExtension
+    
+cache.debug:
+    debug: %debugMode%
+```

@@ -19,6 +19,7 @@ Extra contrib to [`nette/caching`](https://github.com/nette/caching).
 - [Setup](.docs/README.md#setup)
 - [CacheFactory](.docs/README.md#cache-factory)
 - [Storages](.docs/README.md#storages)
+- [Debug panel](#debug-panel)
 
 ## Versions
 
