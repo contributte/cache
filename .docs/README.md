@@ -56,3 +56,5 @@ extensions:
 cache.debug:
     debug: %debugMode%
 ```
+
+![Debug panel screenshot](_misc/debug-panel-screenshot.png)
