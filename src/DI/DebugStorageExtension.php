@@ -57,7 +57,7 @@ final class DebugStorageExtension extends CompilerExtension
 
 		$tracyBarDefinition = $builder->getDefinitionByType(Bar::class);
 		assert($tracyBarDefinition instanceof ServiceDefinition);
-		$tracyBarDefinition->addSetup('addPanel(?)', [$this->prefix('tracy.panel')]);
+		$tracyBarDefinition->addSetup('$service->addPanel(?)', ['@' . $this->prefix('tracy.panel')]);
 	}
 
 }
