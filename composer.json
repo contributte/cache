@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": ">=7.2",
     "nette/caching": "~3.0.0"
   },
   "require-dev": {
