@@ -3,19 +3,20 @@
 	<!-- Contributte Coding Standard -->
 	<rule ref="./vendor/ninjify/coding-standard/contributte.xml">
 		<exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
+		<exclude name="SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable"/>
 	</rule>
 
-    <!-- Specific rules -->
-    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
-        <properties>
-            <property name="rootNamespaces" type="array" value="
-				src=>Contributte\Cache,
-				tests/cases=>Tests\Cases,
-			"/>
-        </properties>
-    </rule>
+	<!-- Specific rules -->
+	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+		<properties>
+			<property name="rootNamespaces" type="array">
+				<element key="src" value="Contributte\Cache"/>
+				<element key="tests/cases" value="Tests\Cases"/>
+			</property>
+		</properties>
+	</rule>
 
-    <!--Exclude folders -->
-    <exclude-pattern>/tests/tmp</exclude-pattern>
+	<!--Exclude folders -->
+	<exclude-pattern>/tests/tmp</exclude-pattern>
 </ruleset>
 
