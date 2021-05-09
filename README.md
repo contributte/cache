@@ -1,8 +1,8 @@
 ![](https://heatbadger.now.sh/github/readme/contributte/cache/)
 
 <p align=center>
-  <a href="https://github.com/contributte/cache/actions"><img src="https://badgen.net/github/checks/contributte/cache/master?cache=300"></a>
-  <a href="https://coveralls.io/r/contributte/cache"><img src="https://badgen.net/coveralls/c/github/contributte/cache?cache=300"></a>
+  <a href="https://github.com/contributte/cache/actions"><img src="https://badgen.net/github/checks/contributte/cache/master"></a>
+  <a href="https://coveralls.io/r/contributte/cache"><img src="https://badgen.net/coveralls/c/github/contributte/cache"></a>
   <a href="https://packagist.org/packages/contributte/cache"><img src="https://badgen.net/packagist/dm/contributte/cache"></a>
   <a href="https://packagist.org/packages/contributte/cache"><img src="https://badgen.net/packagist/v/contributte/cache"></a>
 </p>
@@ -40,7 +40,8 @@ For details on how to use this package, check out our [documentation](.docs).
 
 ## Development
 
-See [how to contribute](https://contributte.org) to this package. This package is currently maintained by these authors.
+See [how to contribute](https://contributte.org) to this package. 
+This package is currently maintained by these authors.
 
 <a href="https://github.com/f3l1x">
     <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
