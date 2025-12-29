@@ -1,13 +1,12 @@
 includes:
-	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
-	- vendor/phpstan/phpstan-nette/extension.neon
-	- vendor/phpstan/phpstan-nette/rules.neon
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
+	- vendor/contributte/phpstan/phpstan.neon
 
 parameters:
-	ignoreErrors:
-		# Future proof
-		- '#^Return type \(string\|null\) of method Contributte\\Cache\\Tracy\\StoragePanel\:\:get.+ should be covariant with return type \(string\) of method .+#'
-
-		# Ugly part of php
-		- '#^Method .+ returns string\|false.$#'
+	level: 9
+	phpVersion: 80200
+	scanDirectories:
+		- src
+	fileExtensions:
+		- php
+	paths:
+		- src
