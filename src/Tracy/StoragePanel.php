@@ -8,11 +8,10 @@ use Tracy\IBarPanel;
 class StoragePanel implements IBarPanel
 {
 
-	/** @var LoggableStorage */
-	private $storage;
+	private LoggableStorage $storage;
 
-	/** @var mixed[] */
-	private $options = [
+	/** @var array<string, mixed> */
+	private array $options = [
 		'title' => '%d calls',
 		'titleNo' => 'no call',
 		'dumpData' => true,
@@ -32,26 +31,33 @@ class StoragePanel implements IBarPanel
 		$this->options = array_merge($this->options, $options);
 	}
 
-	public function getTab(): ?string
+	public function getTab(): string
 	{
 		$calls = count($this->storage->getCalls());
+		$title = $this->options['title'];
+		$titleNo = $this->options['titleNo'];
+		assert(is_string($title));
+		assert(is_string($titleNo));
 
 		return '<span title="Caching storage panel">'
 			. '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAupJREFUOI19k0lMU1EUhv97332Pvkdf6AgW0YIQwWic2DghRjQEDSZuTHSlCzckTgu3Lk1caEw0TokL40ZjdEPFKQpOGBYOCAoOiNBoW0uxBdq+vuFeF0QSBT3Lk/98OflyDsF/6sj1UdXWte3AePuZbYsLc2XonJNCkLZIapfldg0IgRuC+/oPdCRbIQT5OzqrcTCSrOfAaRCyYZoFxCYsUAlwSdIbj0J2n90RHJwFaIsk5lHQ4+msuTfPKSGUoLSYwbA4vk2YcCsMtgDm69QmlJwRWX7s3K6yKQoAK059Wmpz2gFC9o0ZnBgOR9bkKNgCmkKhMoqCwxEslsAFvsWmnA0f8/ZKAGAAMFawg3fe/VhRO09/GvYoy5I57nUrFKo8vWCFR4EQmEwb9qsfWWedAA3/IZFwIQQkOhjPNTz4MC6pjD/xq9QGAHAu8hZ/9mnMLCSyolGAyoREh5gyHAMACQBaj/a4FGOgKmMu93Kh+qI/zXAsbY76deXV95ywUjm+WhCiEUxmStQTj8sDV40Fpc97ui9/iTIAcLmsUFX126ZAsu15dLyJjGb2NkyYqOyP50d8xUW1Diyuy9eeety3TX9AXs9osZsKQmYcSJNO3KHShB7iTXWBe/FgovvR19QeL7AdsvSit1S7FA8GzDpFcYXlPM8sicQ66kx/7MRvwKGLheCwZfX1LWf43OxuCFZkm3X/uX5z8tZImd9ya7raDEGcmoeprmW9phXSgxsliYQADLFpk1xaJMtN5X08UTWYftS3WfXEVhat8ZaYKY1p9f73U69XPcgkKhXfkiKvLwwg7RCSnJG4v3JBUpJMmQGbygirDQ/Yae2d8VK4pFx9e3p47WdFK9cDGymjOgEuycLcGb74MDrrlPtbq2uoTU+CYocDCEPRIn5fWQtlYADvdCg7XH3+7tv//gIAvG+p2QpKTiueQJK69YWU4Gjlhfs358rOCQCAzsZGVhHKbWFFWlfVlcfGv3K/ABgGN/kmNNzXAAAAAElFTkSuQmCC"/> '
-			. ($calls > 0 ? sprintf($this->options['title'], $calls) : $this->options['titleNo'])
+			. ($calls > 0 ? sprintf($title, $calls) : $titleNo)
 			. ' </span>';
 	}
 
-	public function getPanel(): ?string
+	public function getPanel(): string
 	{
 		ob_start();
 
+		// Variables used in the template file
+		// phpcs:ignore SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable
 		$calls = $this->storage->getCalls();
+		// phpcs:ignore SlevomatCodingStandard.Variables.UnusedVariable.UnusedVariable
 		$options = $this->options;
 
 		require __DIR__ . '/templates/panel.phtml';
 
-		return ob_get_clean();
+		return (string) ob_get_clean();
 	}
 
 }

@@ -4,7 +4,7 @@ namespace Contributte\Cache\DI;
 
 use Contributte\Cache\Storages\LoggableStorage;
 use Contributte\Cache\Tracy\StoragePanel;
-use Nette\Caching\IStorage;
+use Nette\Caching\Storage;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\ServiceDefinition;
 use Nette\Schema\Expect;
@@ -49,7 +49,7 @@ final class DebugStorageExtension extends CompilerExtension
 			return;
 		}
 
-		$originalStorage = $builder->getDefinitionByType(IStorage::class)
+		$originalStorage = $builder->getDefinitionByType(Storage::class)
 			->setAutowired(false);
 
 		$builder->addDefinition($this->prefix('loggable'))

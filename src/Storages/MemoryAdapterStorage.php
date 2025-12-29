@@ -2,19 +2,17 @@
 
 namespace Contributte\Cache\Storages;
 
-use Nette\Caching\IStorage;
+use Nette\Caching\Storage;
 use Nette\Caching\Storages\MemoryStorage;
 
-class MemoryAdapterStorage implements IStorage
+class MemoryAdapterStorage implements Storage
 {
 
-	/** @var IStorage */
-	private $cachedStorage;
+	private Storage $cachedStorage;
 
-	/** @var MemoryStorage */
-	private $memoryStorage;
+	private MemoryStorage $memoryStorage;
 
-	public function __construct(IStorage $cachedStorage)
+	public function __construct(Storage $cachedStorage)
 	{
 		$this->cachedStorage = $cachedStorage;
 		$this->memoryStorage = new MemoryStorage();
@@ -22,12 +20,8 @@ class MemoryAdapterStorage implements IStorage
 
 	/**
 	 * Read from cache.
-	 *
-	 * @param string $key
-	 * @return mixed|null
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function read($key)
+	public function read(string $key): mixed
 	{
 		// Get data from memory storage
 		$data = $this->memoryStorage->read($key);
@@ -46,11 +40,8 @@ class MemoryAdapterStorage implements IStorage
 
 	/**
 	 * Prevents item reading and writing. Lock is released by write() or remove().
-	 *
-	 * @param string $key
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function lock($key): void
+	public function lock(string $key): void
 	{
 		$this->cachedStorage->lock($key);
 		// Not implemented by MemoryStorage
@@ -59,12 +50,9 @@ class MemoryAdapterStorage implements IStorage
 	/**
 	 * Writes item into the cache.
 	 *
-	 * @param string  $key
-	 * @param mixed   $data
 	 * @param mixed[] $dependencies
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function write($key, $data, array $dependencies): void
+	public function write(string $key, mixed $data, array $dependencies): void
 	{
 		$this->cachedStorage->write($key, $data, $dependencies);
 		$this->memoryStorage->write($key, $data, $dependencies);
@@ -72,11 +60,8 @@ class MemoryAdapterStorage implements IStorage
 
 	/**
 	 * Removes item from the cache.
-	 *
-	 * @param string $key
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function remove($key): void
+	public function remove(string $key): void
 	{
 		$this->cachedStorage->remove($key);
 		$this->memoryStorage->remove($key);

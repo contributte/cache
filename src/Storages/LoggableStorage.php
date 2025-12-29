@@ -2,9 +2,9 @@
 
 namespace Contributte\Cache\Storages;
 
-use Nette\Caching\IStorage;
+use Nette\Caching\Storage;
 
-final class LoggableStorage implements IStorage
+final class LoggableStorage implements Storage
 {
 
 	public const KEY_METHOD = 'method';
@@ -12,18 +12,17 @@ final class LoggableStorage implements IStorage
 	public const KEY_DATA = 'data';
 	public const KEY_OPTIONS = 'options';
 
-	/** @var IStorage */
-	private $storage;
+	private Storage $storage;
 
-	/** @var mixed[] */
-	private $options = [
+	/** @var array<string, mixed> */
+	private array $options = [
 		'maxCalls' => 100,
 	];
 
-	/** @var mixed[] */
-	private $calls = [];
+	/** @var array<int, array{method: string, key: string, data: mixed, options: mixed[]}> */
+	private array $calls = [];
 
-	public function __construct(IStorage $storage)
+	public function __construct(Storage $storage)
 	{
 		$this->storage = $storage;
 	}
@@ -37,17 +36,14 @@ final class LoggableStorage implements IStorage
 	}
 
 	/**
-	 * @return mixed[]
+	 * @return array<int, array{method: string, key: string, data: mixed, options: mixed[]}>
 	 */
 	public function getCalls(): array
 	{
 		return $this->calls;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function read(string $key)
+	public function read(string $key): mixed
 	{
 		$data = $this->storage->read($key);
 
@@ -64,11 +60,9 @@ final class LoggableStorage implements IStorage
 	}
 
 	/**
-	 * @param mixed   $data
 	 * @param mixed[] $dependencies
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function write(string $key, $data, array $dependencies): void
+	public function write(string $key, mixed $data, array $dependencies): void
 	{
 		$this->addLog(__FUNCTION__, $key, $data, ['dependencies' => $dependencies]);
 
@@ -93,15 +87,13 @@ final class LoggableStorage implements IStorage
 	}
 
 	/**
-	 * @param mixed   $key
-	 * @param mixed   $data
 	 * @param mixed[] $options
 	 */
-	private function addLog(string $method, $key, $data = null, array $options = []): void
+	private function addLog(string $method, string $key, mixed $data = null, array $options = []): void
 	{
 		$this->calls[] = [
 			self::KEY_METHOD => $method,
-			self::KEY_KEY => (string) $key,
+			self::KEY_KEY => $key,
 			self::KEY_DATA => $data,
 			self::KEY_OPTIONS => $options,
 		];

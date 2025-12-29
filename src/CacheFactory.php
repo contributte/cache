@@ -3,15 +3,14 @@
 namespace Contributte\Cache;
 
 use Nette\Caching\Cache;
-use Nette\Caching\IStorage;
+use Nette\Caching\Storage;
 
 class CacheFactory implements ICacheFactory
 {
 
-	/** @var IStorage */
-	private $storage;
+	private Storage $storage;
 
-	public function __construct(IStorage $storage)
+	public function __construct(Storage $storage)
 	{
 		$this->storage = $storage;
 	}
