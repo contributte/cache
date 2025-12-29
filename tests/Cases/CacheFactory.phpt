@@ -5,13 +5,14 @@
  */
 
 use Contributte\Cache\CacheFactory;
+use Contributte\Tester\Toolkit;
 use Nette\Caching\Cache;
 use Nette\Caching\Storages\DevNullStorage;
 use Tester\Assert;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$factory = new CacheFactory(new DevNullStorage());
 
 	Assert::type(Cache::class, $factory->create('foo'));
